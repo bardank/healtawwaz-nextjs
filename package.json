@@ -12,6 +12,7 @@
     "start": "next start -p $PORT"
   },
   "dependencies": {
+    "@apollo/react-components": "^3.1.5",
     "@apollo/react-hooks": "^3.1.5",
     "@emarketeross/simple-react-intersection-observer": "^0.1.13",
     "@fortawesome/fontawesome-free": "^5.13.1",
@@ -40,8 +41,5 @@
     "react-scripts": "3.4.1",
     "sanitize-html": "^1.23.0",
     "sass": "^1.26.10"
-  },
-  "devDependencies": {
-    "@apollo/react-components": "^3.1.5"
   }
 }
