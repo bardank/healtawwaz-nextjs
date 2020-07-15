@@ -52,7 +52,7 @@ export default function MostReads() {
       </div>
       <div className='rd-ads'>
         <span>--विज्ञापन--</span>
-        <img src='img/manab.gif' alt className='img-fluid' />
+        <img src='../image/manab.gif' alt className='img-fluid' />
       </div>
     </div>
   );

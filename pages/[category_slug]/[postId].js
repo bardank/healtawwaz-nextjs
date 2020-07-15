@@ -6,9 +6,10 @@ import loadingSVG from "../../image/icon.svg";
 import PostDetailComponent from "../../components/Post/PostDetailComponent";
 import NotFound from "../NotFound";
 import { useRouter } from 'next/router';
+import { post } from "jquery";
 
-export default function PostDetail(props) {
-    let {postId} = useRouter().query;
+function PostDetail(props) {
+    let {postId} = props.params;
     const renderPage = function(loading, error, data, refetch) {
     if (loading) {
       return (
@@ -17,13 +18,14 @@ export default function PostDetail(props) {
         </div>
       );
     }
+    console.log(data)
     if (error) {
       return <NotFound />;
     }
     return (
       <React.Fragment>
 
-        <PostDetailComponent post={data} />
+        <PostDetailComponent post={data} params={props.params} />
       </React.Fragment>
     );
   }
@@ -35,3 +37,9 @@ export default function PostDetail(props) {
     </Query>
   );
 }
+
+PostDetail.getInitialProps = async(props) => {
+  return {params: props.query.params}
+}
+
+export default PostDetail;

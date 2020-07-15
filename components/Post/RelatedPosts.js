@@ -82,29 +82,3 @@ export default function RelatedPosts({data}) {
   </div>
   )
 }
-
-{
-  /* <script>
-    var owl = $('.owl-carousel');
-								owl.owlCarousel({
-        loop:true,
-									margin:15,
-									autoplay:true,
-									autoplayTimeout:2000,
-									autoplayHoverPause:true,
-									responsive : {
-        0 : {
-        items:1
-										},
-										// breakpoint from 480 up
-										480 : {
-        items:2
-										},
-										// breakpoint from 768 up
-										1280 : {
-        items:3
-										}
-									}
-								});
-							</script> */
-}

@@ -58,6 +58,6 @@ function MyApp({ Component, pageProps }) {
 }
 // MyApp.getInitialProps = async (ctx )  => {
     
-//     return {}
+//     return {...ctx}
 // }
 export default MyApp
