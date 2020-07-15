@@ -237,4 +237,5 @@ export default function PostDetailComponent({post}) {
         </div>
       </div>
     </main>
-  
+  )
+}
