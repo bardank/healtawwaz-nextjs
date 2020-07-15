@@ -18,7 +18,6 @@ function PostDetail(props) {
         </div>
       );
     }
-    console.log(data)
     if (error) {
       return <NotFound />;
     }

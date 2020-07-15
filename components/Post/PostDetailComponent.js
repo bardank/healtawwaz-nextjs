@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import DOMPurify from "dompurify";
 import Head from 'next/head';
 import PostTrending from "./PostTrending";
 import { useRouter } from 'next/router'
@@ -179,7 +178,7 @@ export default function PostDetailComponent({post, params}) {
             <p
               className=''
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(post.postBy.content),
+                __html: post.postBy.content,
               }}></p>
             {videoId === "notfound" ? (
               ""
