@@ -15,7 +15,6 @@ import PopularPost from "../Common/PopularPost";
 export default function PostDetailComponent({post, params}) {
   
   const categoryslug = params.category_slug;
-  console.log(categoryslug);
   let ogimage;
   if (post.postBy.featuredImage.sourceUrl) {
     ogimage = post.postBy.featuredImage.sourceUrl;
@@ -47,9 +46,8 @@ export default function PostDetailComponent({post, params}) {
     authorUrl = post.postBy.author.avatar.url;
     authorinfo = post.postBy.author.description;
   }
-
   let videoId = GetIdFromUrl(post.postBy.PostDetail.videoLink);
-  console.log(videoId);
+  // console.log(videoId);
   // for share
   let url;
   useEffect(() => {
@@ -91,7 +89,8 @@ export default function PostDetailComponent({post, params}) {
             property='og:description'
             content={`${post.postBy.seo.opengraphDescription}`}
           />
-          {/* <meta property='og:image' content={`${ogimage}`} /> */}
+
+          <meta property='og:image' content={`${ogimage}`} />
           <meta property="fb:app_id" content="2358789964361367" />
           <script async crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=2358789964361367&autoLogAppEvents=1"  defer /> 
           <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e990f2a844afb2e" defer></script>

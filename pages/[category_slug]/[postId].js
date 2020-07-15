@@ -38,6 +38,7 @@ function PostDetail(props) {
 }
 
 PostDetail.getInitialProps = async(props) => {
+  console.log(props.query)
   return {params: props.query.params}
 }
 
