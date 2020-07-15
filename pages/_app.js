@@ -10,6 +10,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import 'bootstrap/scss/bootstrap.scss';
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import './styles/style.scss'
+import 'react-multi-carousel/lib/styles.css';
 
 import ScrollToTop from "../helper/ScrollToTop";
 
@@ -55,4 +56,8 @@ function MyApp({ Component, pageProps }) {
         </Fragment> 
     )
 }
+// MyApp.getInitialProps = async (ctx )  => {
+    
+//     return {}
+// }
 export default MyApp

@@ -8,7 +8,7 @@ import NotFound from "../NotFound";
 import { useRouter } from 'next/router';
 
 export default function PostDetail(props) {
-    let {postId} = useRouter().query
+    let {postId} = useRouter().query;
     const renderPage = function(loading, error, data, refetch) {
     if (loading) {
       return (
@@ -22,6 +22,7 @@ export default function PostDetail(props) {
     }
     return (
       <React.Fragment>
+
         <PostDetailComponent post={data} />
       </React.Fragment>
     );

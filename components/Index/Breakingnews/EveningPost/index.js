@@ -24,19 +24,22 @@ function FetchingCode() {
         <div className='row d-flex justify-content-center'>
           <div className='col-12'>
             <div className='breaking-wrap'>
-              {data.getPopularPost.map((post, i) => (
-                <React.Fragment key={1}>
-                  {i < 3 && (
-                    <h1 key={post.id}>
-                      <Link href='/[category_slug]/[postId]' as={`${post.slug}/${post.id}`}>
-                        <a>
-                        {post.title}
-                        </a>
-                      </Link>
-                    </h1>
-                  )}
-                </React.Fragment>
-              ))}
+              {data.getPopularPost.map((post, i) => {
+                if(i < 3){
+                  return (
+                      <h1 key={post.id}>
+                        <Link href='/[category_slug]/[postId]' as={`${post.slug}/${post.id}`}>
+                          <a>
+                          {post.title}
+                          </a>
+                        </Link>
+                      </h1>
+                    )
+                }
+                else{
+                  return null;
+                }
+              })}
             </div>
           </div>
         </div>

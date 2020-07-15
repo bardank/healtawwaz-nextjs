@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import DOMPurify from "dompurify";
-// import PostTrending from "./PostTrending";
+import Head from 'next/head';
+import PostTrending from "./PostTrending";
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 // import MostReads from "./MostReads";
-// import RelatedPosts from "./RelatedPosts";
+import RelatedPosts from "./RelatedPosts";
 import myogimage from "../../image/fb.png";
 // import {Helmet} from "react-helmet";
 import {Helmet, HelmetProvider} from "react-helmet-async";
@@ -16,7 +17,6 @@ export default function PostDetailComponent({post}) {
   
   const categoryslug = useRouter().query.category_slug;
   console.log(categoryslug);
-  const [show, setShow] = useState(false)
   let ogimage;
   if (post.postBy.featuredImage.sourceUrl) {
     ogimage = post.postBy.featuredImage.sourceUrl;
@@ -57,14 +57,11 @@ export default function PostDetailComponent({post}) {
     if(process.browser && (typeof window !== 'undefined')){
       let uri = window.location.pathname;
       url = `https://react.resham.info.np${uri}`;
-      setShow(true);
     }
     return ()=>{
-      setShow(false)
     }
   }, [])
 
- 
  
   // getting category data
   let Postdata;
@@ -84,8 +81,7 @@ export default function PostDetailComponent({post}) {
   });
   return (
     <main className='main-cont'>
-      <HelmetProvider>
-        <Helmet>
+        <Head>
           <meta property='og:title' content='This is title from helmet' />
           <meta property='og:url' content={`${url}`} />
           <meta
@@ -97,26 +93,12 @@ export default function PostDetailComponent({post}) {
             content={`${post.postBy.seo.opengraphDescription}`}
           />
           <meta property='og:image' content={`${ogimage}`} />
-
+          <meta property="fb:app_id" content="2358789964361367" />
+          <script async crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=2358789964361367&autoLogAppEvents=1"  defer /> 
+          <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e990f2a844afb2e" defer></script>
           <title>{post.postBy.seo.opengraphTitle}</title>
-        </Helmet>
-      </HelmetProvider>
+        </Head>
 
-      {/* <MetaTags>
-        <meta property='og:title' content='This is title from helmet' />
-        <meta property='og:url' content={`${url}`} />
-        <meta
-          property='og:title'
-          content={`${post.postBy.seo.opengraphTitle}`}
-        />
-        <meta
-          property='og:description'
-          content={`${post.postBy.seo.opengraphDescription}`}
-        />
-        <meta property='og:image' content={`${ogimage}`} />
-
-        <title>{post.postBy.seo.opengraphTitle}</title>
-      </MetaTags> */}
       <div className='container'>
         <div className='row'>
           <div className='col-12'>
@@ -172,6 +154,7 @@ export default function PostDetailComponent({post}) {
                   </div>
                 </div>
                 <div className='col-lg-7 d-flex justify-content-end'>
+                  {/* <div className="addthis_inline_share_toolbox"></div> */}
                   <div className='addthis_inline_share_toolbox'></div>
                 </div>
               </div>
@@ -201,12 +184,12 @@ export default function PostDetailComponent({post}) {
             {videoId === "notfound" ? (
               ""
             ) : (
-              <div class='rd-video'>
+              <div className='rd-video'>
                 <iframe
                   src={`https://www.youtube.com/embed/${videoId}`}
-                  frameborder='0'
+                  frameBorder='0'
                   allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-                  allowfullscreen></iframe>
+                  allowFullScreen></iframe>
               </div>
             )}
 
@@ -228,7 +211,8 @@ export default function PostDetailComponent({post}) {
                 <span key={tag.slug}>
                   {i === 0 ? "" : ","}
 
-                  <Link href='/tag/[id]' as={`/tag/${tag.slug}`}>#{tag.name}</Link>
+                  <Link href='/tag/[id]' as={`/tag/${tag.slug}`} passHref>
+                   <a> #{tag.name}</a></Link>
                 </span>
               ))}
             </span>
@@ -246,16 +230,11 @@ export default function PostDetailComponent({post}) {
               />
             </div>
             <hr />
-            {/* {show &&
               <RelatedPosts data={relatedPosts} />
-            } */}
           </div>
-          <PopularPost myclass={"col-md-3 rd-popular"} />
-          {/* {show &&
+          {/* <PopularPost myclass={"col-md-3 rd-popular"} /> */}
             <PostTrending data={post.posts} />
-          } */}
         </div>
       </div>
     </main>
-  );
-}
+  
