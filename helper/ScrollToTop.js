@@ -7,7 +7,7 @@ class ScrollToTop extends Component {
     const { pathname, query } = this.props.router
     // verify props have changed to avoid an infinite loop
     if (query.counter !== prevProps.router.query.counter) {
-      // fetch data based on the new query
+      console.log(query)
     }
   }
   componentDidUpdate(prevProps) {

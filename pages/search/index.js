@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {Query} from "@apollo/react-components";
 import {SEARCH_POST} from "../../queries/posts/SearchPost";
 import queryString from "query-string";
@@ -11,7 +11,7 @@ export default function SearchPost(props){
   
   const values = useRouter().query;
   let search = values.news;
-  console.log(search)
+  // console.log(search)
   const renderPage = function (loading, error, data, refetch) {
     if (loading) {
       return (

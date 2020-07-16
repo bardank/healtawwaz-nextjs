@@ -7,7 +7,7 @@
     "npm": "6.x"
   },
   "scripts": {
-    "dev": "nodemon server",
+    "dev": "next dev",
     "server": "node server.js",
     "build": "next build",
     "start": "node server.js -p $PORT"

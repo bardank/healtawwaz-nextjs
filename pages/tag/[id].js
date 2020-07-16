@@ -7,10 +7,9 @@ import loadingSVG from "../../image/icon.svg";
 // import AllPosts from "../components/Categories/AllPosts";
 import TagComponent from "../../components/Tag/TagComponent";
 import NotFound from "../NotFound";
-import { useRouter } from 'next/router';
 
-export default function TagPage (props){
-  let {id} = useRouter().query;
+function TagPage (props){
+  let {id} = props.query
 
   const renderPage = function(loading, error, data, fetchMore) {
     if (error) {
@@ -27,14 +26,14 @@ export default function TagPage (props){
     if (typeof data !== "undefined" && data.tag !== null) {
       // let posts = data.category.posts.nodes;
       let posts = data.tag.posts.edges;
-      console.log(data);
+      // console.log(data);
       let combinedata = {
         data,
         fetchMore,
       };
       return <TagComponent mydata={combinedata} />;
     }
-    console.log("Last");
+    // console.log("Last");
     return null;
   }
   return (
@@ -46,3 +45,7 @@ export default function TagPage (props){
   );
 }
 
+TagPage.getInitialProps   = async(props) => {
+  return {query: props.query}
+}
+export default TagPage;

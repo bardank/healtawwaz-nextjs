@@ -56,4 +56,3 @@ export const CATEGORY_POSTS = gql`
     }
   }
 `;
-

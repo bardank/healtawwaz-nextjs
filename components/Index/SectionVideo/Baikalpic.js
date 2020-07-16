@@ -31,7 +31,7 @@ export default function Baikalpic({data}) {
         <span>-विज्ञापन-</span>
         <Link href='#' passHref>
           <a>
-          <img src='img/nnh.gif' className='img-fluid' alt='nnh' />
+          {/* <img src='img/nnh.gif' className='img-fluid' alt='nnh' /> */}
           </a>
         </Link>
       </div>

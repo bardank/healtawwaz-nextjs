@@ -48,16 +48,16 @@ function MyApp({ Component, pageProps }) {
         <Fragment>
             <ApolloProvider client={client}>
                 <Navbar  showScroll={showScroll}/>
-                {/* <ScrollToTop> */}
+                <ScrollToTop>
                     <Component {...pageProps} />
-                {/* </ScrollToTop> */}
+                </ScrollToTop>
                 <Footer data={scrollStick} />
             </ApolloProvider>
         </Fragment> 
     )
 }
 // MyApp.getInitialProps = async (ctx )  => {
-    
+//     console.log(ctx)
 //     return {...ctx}
 // }
 export default MyApp

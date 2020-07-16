@@ -10,13 +10,18 @@ app.prepare().then(() => {
   const server = express()
 
   server.get('/:category_slug/:postId', (req, res) => {
-    return app.render(req, res, '/[category_slug]/[postId]',{query:req.query, params: req.params})
+    return app.render(req, res, '/[category_slug]/[postId]',{category_slug:req.params.category_slug, postId: req.params.postId})
   })
 
-  // server.get('/b', (req, res) => {
-  //   return app.render(req, res, '/b', req.query)
-  // })
-
+  server.get('/tag/:id', (req, res) => {
+    return app.render(req, res, '/tag/[id]', {id: req.params.id})
+  })
+  server.get('/user/:id', (req, res) => {
+    return app.render(req, res, '/user/[id]', {id: req.params.id})
+  })
+  server.get('/category/:id', (req, res) => {
+    return app.render(req, res, '/category/[id]', {id: req.params.id})
+  })
   server.get('*', (req, res) => {
     return handle(req, res)
   })

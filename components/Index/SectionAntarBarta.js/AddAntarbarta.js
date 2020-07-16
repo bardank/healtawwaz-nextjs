@@ -6,27 +6,27 @@ export default function AddAntarbarta() {
       <div className='rd-ads'>
         <span>-विज्ञापन-</span>
         <a href='#'>
-          <img src='img/manab.gif' alt='manab' className='img-fluid' />
+          {/* <img src='img/manab.gif' alt='manab' className='img-fluid' /> */}
         </a>
       </div>
       <div className='rd-ads'>
         <a href='#'>
-          <img src='img/samyak-banner.jpg' alt='samyak-banner' className='img-fluid' />
+          {/* <img src='img/samyak-banner.jpg' alt='samyak-banner' className='img-fluid' /> */}
         </a>
       </div>
       <div className='rd-ads'>
         <a href='#'>
-          <img
+          {/* <img
             src='img/oepl.gif'
             style={{width: "100%"}}
             alt='oepl'
             className='img-fluid'
-          />
+          /> */}
         </a>
       </div>
       <div className='rd-ads'>
         <a href='#'>
-          <img src='img/samajdental.gif' alt='samajdental' className='img-fluid' />
+          {/* <img src='img/samajdental.gif' alt='samajdental' className='img-fluid' /> */}
         </a>
       </div>
       <div className='rd-ads'>

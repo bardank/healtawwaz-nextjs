@@ -4,13 +4,11 @@ import gql from "graphql-tag";
 import {USER_POSTS} from "../../queries/posts/User";
 import AllPosts from "../../components/Categories/AllPosts";
 import UserComponent from "../../components/User/UserComponent";
-import { useRouter } from 'next/router';
 
-export default function UserPage(props) {
-  let {id} = useRouter().query;
+function UserPage(props) {
+  let {id} = props.query;
   const renderPage =  function(loading, error, data, fetchMore) {
     if (error) {
-      console.log("Hekkk");
       console.log(error);
       return "";
     }
@@ -26,7 +24,7 @@ export default function UserPage(props) {
       };
       return <UserComponent mydata={combinedata} />;
     }
-    console.log("Last");
+    // console.log("Last");
     return "No Posts";
   }
   return (
@@ -37,4 +35,7 @@ export default function UserPage(props) {
     </Query>
   );
 }
-
+TagPage.getInitialProps   = async(props) => {
+  return {query: props.query}
+}
+export default UserPage
