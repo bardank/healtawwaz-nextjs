@@ -35,7 +35,7 @@ function UserPage(props) {
     </Query>
   );
 }
-TagPage.getInitialProps   = async(props) => {
+UserPage.getInitialProps   = async(props) => {
   return {query: props.query}
 }
 export default UserPage

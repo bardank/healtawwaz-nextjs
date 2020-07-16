@@ -1,13 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import Head from 'next/head';
 import PostTrending from "./PostTrending";
-import { useRouter } from 'next/router'
 import Link from 'next/link';
 // import MostReads from "./MostReads";
 import RelatedPosts from "./RelatedPosts";
 import myogimage from "../../image/fb.png";
 // import {Helmet} from "react-helmet";
-import {Helmet, HelmetProvider} from "react-helmet-async";
 import {dateConvertor} from "../../helper/DateConvertor";
 import {GetIdFromUrl} from "../../helper/GetIdFromUrl";
 import PopularPost from "../Common/PopularPost";
@@ -129,7 +127,6 @@ export default function PostDetailComponent({post, params}) {
                           height={60}
                           alt='Health Aawaj'
                           className='avatar img-fluid rounded-circle'
-                          style={{}}
                           data-was-processed='true'
                         />
                         <span className='rduser border-right'>
