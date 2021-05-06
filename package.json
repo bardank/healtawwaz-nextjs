@@ -41,7 +41,7 @@
     "react-router-sitemap": "^1.2.0",
     "react-sanitized-html": "^2.0.0",
     "react-scripts": "3.4.1",
-    "sanitize-html": "^1.23.0",
+    "sanitize-html": "^2.3.2",
     "sass": "^1.26.10"
   }
 }
